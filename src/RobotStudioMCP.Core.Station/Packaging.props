@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <PackageId>RobotStudioMCP.Core.Station</PackageId>
+    <Description>Shared RobotStudio station state contracts and polling helpers.</Description>
+    <Authors>RobotStudioMCP contributors</Authors>
+    <PackageProjectUrl>https://github.com/Lagun271/RobotStudioMCP</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Lagun271/RobotStudioMCP</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>RobotStudio;station;controller;automation</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageOutputPath>$(MSBuildProjectDirectory)/../artifacts/nuget</PackageOutputPath>
+    <UpdateVersionProperties>true</UpdateVersionProperties>
+  </PropertyGroup>
+</Project>

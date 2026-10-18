@@ -1,0 +1,37 @@
+<Project>
+  <PropertyGroup>
+    <!-- Enable Roslyn analyzers for all SDK-style projects in this repo. -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+
+    <!-- Keep analyzer warnings visible but non-blocking by default. -->
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+
+    <!-- Repo-wide assembly metadata defaults. -->
+    <Title Condition="'$(Title)' == ''">RobotStudioMCP</Title>
+    <Product Condition="'$(Product)' == ''">RobotStudioMCP</Product>
+    <Company Condition="'$(Company)' == ''">RobotStudioMCP</Company>
+    <Description Condition="'$(Description)' == ''">RobotStudioMCP</Description>
+    <Copyright Condition="'$(Copyright)' == ''">Copyright © 2026</Copyright>
+
+    <!--
+      Versioning policy (repo-wide): GitVersion is the single source of truth.
+      - SDK assembly version attributes stay disabled to avoid duplicate attributes (e.g. CS0579).
+      - Build mode with DisableGitVersionTask=true is intentionally unsupported in this repo.
+    -->
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <!-- Set to false so SDK does not emit duplicate version attributes when GitVersion is active. -->
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+
+    <!-- Keep non-assembly version properties at their defaults. -->
+    <UpdateVersionProperties>false</UpdateVersionProperties>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild" PrivateAssets="all" />
+  </ItemGroup>
+</Project>

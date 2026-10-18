@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RobotStudioMCP</RootNamespace>
+    <AssemblyName>RobotStudioMCP</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(MSBuildProgramFiles32)\ABB\RobotStudio 2026\Bin\RobotStudio.exe</StartProgram>
+    <StartArguments>/addin:"$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\RobotStudioMCP.rsaddin" /LoadAddins</StartArguments>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Compile-only RobotStudio references (ref/ assemblies; RobotStudio provides them at runtime). -->
+    <PackageReference Include="Lagun271.RobotStudio.Sdk.Ref" PrivateAssets="all" />
+    <!-- Provides $(RspakToolPath) for the PackRspak target. -->
+    <PackageReference Include="Lagun271.RobotStudio.RspakTool" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Builds RobotStudioMCP-<RspakVersion>.rspak next to the .rspakspec: dotnet msbuild -t:PackRspak -p:RspakVersion=0.1.1-local -->
+  <Target Name="PackRspak">
+    <Error Condition="'$(RspakVersion)' == ''" Text="Pass -p:RspakVersion=&lt;version&gt;." />
+    <Error Condition="'$(RspakToolPath)' == '' or !Exists('$(RspakToolPath)')" Text="RspakTool not found ('$(RspakToolPath)'). Restore the Lagun271.RobotStudio.RspakTool package." />
+    <Exec Command="&quot;$(RspakToolPath)&quot; -i &quot;RobotStudioMCP.rspakspec&quot; -p &quot;version=$(RspakVersion)&quot; -p &quot;configuration=$(Configuration)&quot;"
+          WorkingDirectory="$(MSBuildProjectDirectory)" />
+  </Target>
+
+  <ItemGroup>
+    <None Update="RobotStudioMCP.rsaddin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RobotStudioMCP.AddinServer\RobotStudioMCP.AddinServer.csproj" />
+    <ProjectReference Include="..\RobotStudioMCP.Core.Station\RobotStudioMCP.Core.Station.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RobotStudioMCP.AddinServer</RootNamespace>
+    <AssemblyName>RobotStudioMCP.AddinServer</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!-- No ASP.NET Core / MCP SDK dependency here on purpose: this add-in runs inside RobotStudio.exe,
+       not as its own ASP.NET Core app, so RobotStudio's own runtime config never declares the ASP.NET
+       Core shared framework, so a FrameworkReference to it fails to load at runtime with
+       FileNotFoundException regardless of EnableDynamicLoading. The add-in exposes its tools over a
+       plain named pipe (AddinPipeServer) instead; RobotStudioMCP.Watchdog is the only process that
+       speaks real MCP, and it forwards add-in tool calls over that pipe. -->
+</Project>

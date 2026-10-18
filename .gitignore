@@ -1,0 +1,38 @@
+# Build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+
+# Visual Studio / Rider
+.vs/
+.idea/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# RobotStudio package output
+*.rspak
+
+# Logs
+*.log
+
+# Python / uv
+.venv/
+.pytest_cache/
+**/__pycache__/
+
+# Smoke artifacts
+/artifacts/smoke/
+
+# Local session handoff notes (see docs/planning-workflow.md)
+/HANDOFF.md
+
+# OS files
+.DS_Store
+Thumbs.db

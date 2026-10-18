@@ -1,0 +1,41 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+[*.ps1]
+end_of_line = crlf
+indent_size = 4
+
+[*.yml]
+end_of_line = lf
+
+[*.yaml]
+end_of_line = lf
+
+[*.py]
+end_of_line = lf
+indent_size = 4
+
+[*.md]
+end_of_line = lf
+
+[*.{sh,toml}]
+end_of_line = lf
+
+[{uv.lock,.yamllint,.githooks/*}]
+end_of_line = lf
+
+[Makefile]
+end_of_line = lf
+indent_style = tab
+
+# Analyzer tuning for this repository
+# CA1859 (use concrete types instead of interfaces) is too invasive for current public/internal contracts.
+[*.cs]
+dotnet_diagnostic.CA1859.severity = none

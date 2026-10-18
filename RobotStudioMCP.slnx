@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/RobotStudioMCP.AddinMain/RobotStudioMCP.AddinMain.csproj" />
+    <Project Path="src/RobotStudioMCP.AddinServer/RobotStudioMCP.AddinServer.csproj" />
+    <Project Path="src/RobotStudioMCP.Core.Station/RobotStudioMCP.Core.Station.csproj" />
+    <Project Path="src/RobotStudioMCP.Watchdog/RobotStudioMCP.Watchdog.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/RobotStudioMCP.Watchdog.Tests/RobotStudioMCP.Watchdog.Tests.csproj" />
+  </Folder>
+</Solution>

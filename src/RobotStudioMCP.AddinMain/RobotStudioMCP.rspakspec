@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DistributionPackageSpec xmlns="urn:abb-robotics-robotstudio-distributionpackagespec">
+  <RootDir>RobotStudioMCP-$(version)</RootDir>
+
+  <DistributionPackage>
+    <Title>RobotStudioMCP</Title>
+    <DisplayVersion>$(version)</DisplayVersion>
+    <Creator>RobotStudioMCP</Creator>
+    <Description>MCP-enabled RobotStudio add-in for station object tooling and automation workflows.</Description>
+    <DetailedDescription>Installs the RobotStudioMCP RobotStudio add-in package. Includes the add-in assembly, add-in descriptor, and supporting server assembly.</DetailedDescription>
+    <Date />
+    <Tags>
+      <Tag>RobotStudio-AddIn</Tag>
+      <Tag>MCP</Tag>
+    </Tags>
+  </DistributionPackage>
+
+  <Files>
+    <File src="bin\$(configuration)\net10.0-windows\RobotStudioMCP.dll" target="RobotStudio\Add-In" />
+    <File src="bin\$(configuration)\net10.0-windows\RobotStudioMCP.AddinServer.dll" target="RobotStudio\Add-In" />
+    <File src="bin\$(configuration)\net10.0-windows\RobotStudioMCP.Core.Station.dll" target="RobotStudio\Add-In" />
+    <File src="RobotStudioMCP.rsaddin" target="RobotStudio\Add-In" />
+  </Files>
+</DistributionPackageSpec>

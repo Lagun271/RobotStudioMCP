@@ -1,0 +1,35 @@
+# Line-ending policy (repository stores LF; checkout EOL is defined here, not by core.autocrlf):
+# - Windows/.NET-native files: CRLF in the working tree (default).
+# - Cross-platform scripts, docs, and tool configs used from Git Bash/WSL/CI: LF.
+# - Binary assets: never converted.
+# Keep .editorconfig end_of_line settings in sync with this file.
+
+* text=auto eol=crlf
+
+# Windows-native
+*.ps1 text eol=crlf
+
+# Cross-platform (LF)
+*.md text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+uv.lock text eol=lf
+.yamllint text eol=lf
+.githooks/* text eol=lf
+Makefile text eol=lf
+
+# Binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.zip binary
+*.rslib binary
+*.rspak binary
+*.dll binary
+*.exe binary
+*.pdb binary
+*.nupkg binary
+*.snupkg binary

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RobotStudioAddIn xmlns="urn:abb-robotics-robotstudio-addin"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="urn:abb-robotics-robotstudio-addin file:///C:\Program%20Files%20(x86)\ABB\SDK\RobotStudio%202026%20SDK\RobotStudioAddin.xsd"
+                  autoLoad="true">
+
+  <ApplicationId>com.niklas.robotstudiomcp.dummypowerpacaddin</ApplicationId>
+  <DisplayName>DummyPowerPacAddin</DisplayName>
+  <DisplayVersion>1.0.0.0</DisplayVersion>
+  <Description>Minimal PowerPac-type dummy add-in used for RobotStudioMCP watchdog smoke validation of PowerPac readiness classification (#167). RobotStudio stages PowerPac add-ins (AddinAdded) but never auto-loads them - it requires a manual "Load" click in the Add-Ins browser - so this fixture never needs a working HostedAddInBase implementation to reproduce that log signature.</Description>
+
+  <AddInType>PowerPac</AddInType>
+
+  <Assembly>
+    <FileName>DummyPowerPacAddin.dll</FileName>
+    <Entrypoint>DummyPowerPacAddin.AddIn</Entrypoint>
+  </Assembly>
+
+  <MinimumHostVersion>26.1</MinimumHostVersion>
+  <Dependencies>Station</Dependencies>
+  <Platform>Any</Platform>
+
+</RobotStudioAddIn>

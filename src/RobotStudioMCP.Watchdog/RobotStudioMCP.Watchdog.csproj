@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <PackageId>RobotStudioMCP.Watchdog</PackageId>
+    <Description>Scriptable RobotStudio lifecycle, readiness, and package-management CLI for .NET tool distribution.</Description>
+    <Authors>RobotStudioMCP contributors</Authors>
+    <PackageProjectUrl>https://github.com/Lagun271/RobotStudioMCP</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Lagun271/RobotStudioMCP</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>RobotStudio;watchdog;cli;dotnet-tool;automation</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>robotstudio-watchdog</ToolCommandName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ModelContextProtocol" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" />
+    <PackageReference Include="System.CommandLine" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <Target Name="SetPackageVersionFromGitVersion" BeforeTargets="GenerateNuspec">
+    <PropertyGroup>
+      <Version>$(GitVersion_NuGetVersionV2)</Version>
+      <PackageVersion>$(GitVersion_NuGetVersionV2)</PackageVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(GitVersion_PreReleaseLabel)' != ''">
+      <Version>$(GitVersion_NuGetVersionV2).$(GitVersion_CommitsSinceVersionSource)</Version>
+      <PackageVersion>$(GitVersion_NuGetVersionV2).$(GitVersion_CommitsSinceVersionSource)</PackageVersion>
+    </PropertyGroup>
+  </Target>
+</Project>
